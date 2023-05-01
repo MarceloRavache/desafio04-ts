@@ -32,5 +32,11 @@ export class UserService {
     getAllUsers = () => {
         return this.db
     }
+
+    deleteUser = (name: string, email: string) => {
+        const newDb = this.db.filter(userInfos => userInfos.name !== name && userInfos.email !== email)
+        this.db = newDb;
+        console.log('DB atualizado', this.db)
+    }
 }
 
